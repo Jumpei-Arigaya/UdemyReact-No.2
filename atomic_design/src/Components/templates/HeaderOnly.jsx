@@ -1,12 +1,10 @@
 import React from 'react'
+import { Header } from '../atoms/layout/Header'
 
 export const HeaderOnly = ({ children }) => {
     return (
         <>
-            <div style={{
-                height: "50px", backgroundColor: "red"
-            }}>
-            </div >
+            <Header />
             {children}
         </>
     )
