@@ -2,10 +2,9 @@ import { Card } from "../../atoms/card/Card"
 import styled from "styled-components"
 import { UserIconWithName } from "../../Molecules/user/UserIconWithName"
 
-export const UserCard = ({ user }) => {
+export const UserCard = ({ user, isAdmin }) => {
     return (
-        <Card>
-
+        < Card >
             <UserIconWithName user={user} />
             <SDl>
                 <dt>メール</dt>
@@ -17,7 +16,7 @@ export const UserCard = ({ user }) => {
                 <dt>WEB</dt>
                 <dd>{user.web}</dd>
             </SDl>
-        </Card>
+        </Card >
     )
 }
 
