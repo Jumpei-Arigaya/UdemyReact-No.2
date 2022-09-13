@@ -12,5 +12,5 @@ export const PrimaryButton = ({ children }) => {
 
 const SButton = styled(BaseButton)`
     background-color: #40514e;
-
+    color: white;
 `
