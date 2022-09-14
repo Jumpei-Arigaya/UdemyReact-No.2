@@ -5,11 +5,14 @@ import { DefaultLayout } from '../templates/DefaultLayout'
 import { useNavigate } from 'react-router-dom'
 import { UserContext } from '../../providers/UserProvider'
 import { useContext } from 'react'
+import { useSetRecoilState } from 'recoil'
+import { userState } from '../../store/userState'
 
 export const Top = () => {
 
     // eslint-disable-next-line
-    const { userInfo, setUserInfo } = useContext(UserContext);
+    // const { userInfo, setUserInfo } = useContext(UserContext);
+    const setUserInfo = useSetRecoilState(userState);
     const navigate = useNavigate();
     const onClickAdmin = () => {
         setUserInfo({ name: "じゅん", isAdmin: true });
