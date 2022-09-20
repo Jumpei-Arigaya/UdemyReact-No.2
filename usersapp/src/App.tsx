@@ -1,17 +1,14 @@
 import './App.css';
-import { Login } from './components/pages/Login';
-import {
-  BrowserRouter,
+import { BrowserRouter } from 'react-router-dom';
+import { Router } from './router/Router';
 
-} from 'react-router-dom'
 function App() {
   return (
-    <>
+    <div className="App">
       <BrowserRouter>
-        <button className='btn btn-primary'>ボタン</button>
-        <Login />
+        <Router />
       </BrowserRouter>
-    </>
+    </div>
   );
 }
 
