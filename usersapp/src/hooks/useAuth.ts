@@ -1,13 +1,20 @@
+import { AlertColor } from '@mui/material';
 import axios from "axios";
-import { useCallback } from "react"
 import { useNavigate } from "react-router-dom";
 import { User } from "../types/api/user";
 import { useState } from "react";
 
+type Props = {
+    message: string;
+    severity: AlertColor;
+    status: string;
+}
+
 export const useAuth = () => {
-    const [loading, setLoading] = useState<boolean>(false);
+    const [alertStatus, setAlertStatus] = useState<Props>();
+    const [loading, setLoading] = useState(false);
     const navigater = useNavigate();
-    const login = useCallback((id: string) => {
+    const login = (id: string) => {
         setLoading(true);
         axios.get<User>(`https://jsonplaceholder.typicode.com/users/${id}`).then((res) => {
             if (res.data) {
@@ -15,7 +22,10 @@ export const useAuth = () => {
             } else {
                 alert("ユーザーが存在しません")
             }
-        }).catch(() => alert("ログインに失敗しました")).finally(() => setLoading(false));
-    }, [navigater])
-    return { login, loading }
+        }).catch(() => {
+            setAlertStatus((prevState) => ({ ...prevState, message: "ログインに失敗しました", severity: "error", status: "error" }))
+        }).finally(
+            () => setLoading(false));
+    }
+    return { login, loading, alertStatus }
 }

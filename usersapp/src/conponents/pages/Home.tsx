@@ -1,8 +1,6 @@
-import { useAuth } from "../../hooks/useAuth"
 import { HeaderLayout } from "../templates/HeaderLayout"
 
 export const Home = () => {
-    const { error } = useAuth();
     return (
         <>
             { }
