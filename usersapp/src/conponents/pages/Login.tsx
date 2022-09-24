@@ -18,11 +18,6 @@ export const Login = () => {
                 <input className="form-control w-50" type="text" placeholder="ユーザーID" value={userId} onChange={onChangeUserId} />
                 <button className="btn btn-info w-50 mt-3" disabled={!(userId)} onClick={onClickLogin}>ログイン</button>
             </SFormarea >
-            {alertStatus && <Snackbar open={true} autoHideDuration={1000} >
-                <Alert severity={alertStatus.severity} sx={{ width: '100%' }}>
-                    {alertStatus?.message}
-                </Alert>
-            </Snackbar>}
         </>
     )
 }

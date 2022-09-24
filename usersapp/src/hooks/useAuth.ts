@@ -1,3 +1,4 @@
+import { useMessage } from './useMessage';
 import { AlertColor } from '@mui/material';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -14,16 +15,19 @@ export const useAuth = () => {
     const [alertStatus, setAlertStatus] = useState<Props>();
     const [loading, setLoading] = useState(false);
     const navigater = useNavigate();
+    const { showMessage } = useMessage();
+
     const login = (id: string) => {
         setLoading(true);
         axios.get<User>(`https://jsonplaceholder.typicode.com/users/${id}`).then((res) => {
             if (res.data) {
                 navigater("/home")
+                showMessage({ title: "ログインに成功しました", severity: "success" });
             } else {
                 alert("ユーザーが存在しません")
             }
         }).catch(() => {
-            setAlertStatus((prevState) => ({ ...prevState, message: "ログインに失敗しました", severity: "error", status: "error" }))
+            showMessage({ title: "ログインに失敗しました", severity: "error" });
         }).finally(
             () => setLoading(false));
     }
