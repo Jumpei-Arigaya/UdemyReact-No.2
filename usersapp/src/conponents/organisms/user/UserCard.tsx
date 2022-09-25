@@ -5,11 +5,12 @@ type Props = {
     imageUrl: string;
     userName: string;
     fullName: string;
+    onClick: () => void;
 }
 
-export const UserCard = ({ imageUrl, userName, fullName }: Props) => {
+export const UserCard = ({ imageUrl, userName, fullName, onClick }: Props) => {
     return (
-        <Box justifyContent="center"
+        <Box justifyContent="center" onClick={onClick}
             sx={{
                 width: 260,
                 height: 260,
