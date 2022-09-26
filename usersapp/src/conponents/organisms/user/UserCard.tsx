@@ -2,15 +2,16 @@ import { Box, Stack } from "@mui/material"
 import styled from "styled-components"
 
 type Props = {
+    id: number;
     imageUrl: string;
     userName: string;
     fullName: string;
-    onClick: () => void;
+    onClick: (id: number) => void;
 }
 
-export const UserCard = ({ imageUrl, userName, fullName, onClick }: Props) => {
+export const UserCard = ({ imageUrl, userName, fullName, onClick, id }: Props) => {
     return (
-        <Box justifyContent="center" onClick={onClick}
+        <Box justifyContent="center" onClick={() => onClick(id)}
             sx={{
                 width: 260,
                 height: 260,

@@ -5,14 +5,16 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import { User } from '../../../types/api/user';
 
 type Props = {
     isOpen: boolean;
     onClose: boolean;
     onClick: () => void;
+    user: User | null;
 }
 
-export const FormDialog = ({ isOpen, onClose, onClick }: Props) => {
+export const FormDialog = ({ isOpen, onClose, onClick, user }: Props) => {
 
     return (
         <div>
@@ -29,7 +31,7 @@ export const FormDialog = ({ isOpen, onClose, onClick }: Props) => {
                         type="text"
                         fullWidth
                         variant="standard"
-                        value="あり"
+                        value={user?.username}
                         disabled={true}
 
                     />
@@ -41,7 +43,7 @@ export const FormDialog = ({ isOpen, onClose, onClick }: Props) => {
                         type="text"
                         fullWidth
                         variant="standard"
-                        value="jumpei arigaya"
+                        value={user?.name}
                         disabled={true}
                     />
                     <TextField
@@ -52,7 +54,7 @@ export const FormDialog = ({ isOpen, onClose, onClick }: Props) => {
                         type="email"
                         fullWidth
                         variant="standard"
-                        value="a@gmail.com"
+                        value={user?.email}
                         disabled={true}
                     />
                     <TextField
@@ -63,7 +65,7 @@ export const FormDialog = ({ isOpen, onClose, onClick }: Props) => {
                         type="phone"
                         fullWidth
                         variant="standard"
-                        value="000-1234-5667"
+                        value={user?.phone}
                         disabled={true}
                     />
                 </DialogContent>
