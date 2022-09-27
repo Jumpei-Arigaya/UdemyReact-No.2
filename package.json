@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@emotion/react": "^11.10.4",
+    "node-sass": "^7.0.3"
+  }
+}
