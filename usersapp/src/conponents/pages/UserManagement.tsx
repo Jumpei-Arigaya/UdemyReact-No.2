@@ -16,8 +16,8 @@ export const UserManagement = () => {
     useEffect(() => getUsers(), []);
 
     const onClickUser = useCallback((id: number) => {
-        setIsOpen(true)
         onSelectUser({ id, users });
+        setIsOpen(true)
     }, [users, onSelectUser])
 
     const handleClose = () => setIsOpen(false)

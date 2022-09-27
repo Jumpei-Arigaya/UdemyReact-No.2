@@ -15,6 +15,6 @@ export const useAllUsers = () => {
             .then((res) => setUsers(res.data))
             .catch(() => showMessage({ title: "ユーザー取得に失敗しました", severity: "error" }))
             .finally(() => setLoading(false))
-    }, []);
+    }, [showMessage]);
     return { getUsers, users, loading }
 }
